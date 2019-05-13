@@ -181,8 +181,18 @@ for(ArrayList <Ventas> ventas: this.registroVentas.values()){
          }
          
      }
-     public void registrarGastosAnuales(int [] gastosanuales){
+     public void registrarGastosAnuales( TreeMap<Integer,Double> gastos_anuales){
+         Date fecha=new Date ();
+         int anio_actual=fecha.getYear()+1990;
+         
+         for(int anio:gastos_anuales.keySet()){
+            if(anio!=anio_actual){
+                gastos_anuales.put(anio_actual,0.0);
+            }else if(anio==anio_actual){
+                gastos_anuales.replace(anio, this.gastos[0]);
+            }
          
      }
+}
 }
     
